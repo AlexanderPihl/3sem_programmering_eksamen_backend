@@ -5,10 +5,8 @@
  */
 package facades;
 
-import dto.HobbyDTO;
 import dto.SportDTO;
 import dto.SportsDTO;
-import entities.Hobby;
 import entities.Sport;
 import errorhandling.MissingInputException;
 import errorhandling.NotFoundException;
