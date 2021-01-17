@@ -13,6 +13,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -28,7 +29,7 @@ import javax.validation.constraints.NotNull;
 public class Sport implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @Basic(optional = false)
     @NotNull
@@ -37,10 +38,11 @@ public class Sport implements Serializable {
 
     @Column(name = "description", length = 135)
     private String description;
-    
+
+    @JoinColumn(name = "sportTeam")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sport")
     private List<SportTeam> sportTeamsList;
-    
+
     public Sport() {
     }
 
@@ -49,7 +51,7 @@ public class Sport implements Serializable {
         this.description = description;
         this.sportTeamsList = new ArrayList<>();
     }
-    
+
     public void addSportTeams(SportTeam sportTeams) {
         if (sportTeams != null) {
             sportTeamsList.add(sportTeams);
@@ -77,5 +79,4 @@ public class Sport implements Serializable {
         return sportTeamsList;
     }
 
-    
 }

@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dto.HobbiesDTO;
 import dto.HobbyDTO;
+import dto.SportDTO;
 import dto.SportTeamDTO;
 import dto.SportTeamsDTO;
 import entities.Hobby;
@@ -21,6 +22,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -106,6 +108,25 @@ public class SportTeamResource {
         FACADE.addSportTeamToSport(sportName, teamName);
 
         return Response.status(Response.Status.OK).entity("Team updated OK").build();
+    }
+
+    @PUT
+    @Path("edit/{sportTeam}")
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    public String updateSportTeam(@PathParam("sportTeam") String teamName, String pricePerYear) throws MissingInputException, NotFoundException {
+        SportTeamDTO sportTeamDTO = GSON.fromJson(pricePerYear, SportTeamDTO.class);
+        sportTeamDTO.setTeamName(teamName);
+        SportTeamDTO sportTeamNew = FACADE.editSportTeam(sportTeamDTO);
+        return GSON.toJson(sportTeamNew);
+    }
+
+    @DELETE
+    @Path("delete/{teamName}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public String deleteTeam(@PathParam("teamName") String teamName) throws NotFoundException {
+        SportTeamDTO teamDelete = FACADE.deleteSportTeam(teamName);
+        return GSON.toJson(teamDelete);
     }
 
 }

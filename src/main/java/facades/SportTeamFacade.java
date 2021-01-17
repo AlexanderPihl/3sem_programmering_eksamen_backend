@@ -5,12 +5,9 @@
  */
 package facades;
 
-import dto.HobbiesDTO;
-import dto.HobbyDTO;
+import dto.SportDTO;
 import dto.SportTeamDTO;
 import dto.SportTeamsDTO;
-import entities.Hobby;
-import entities.Person;
 import entities.Sport;
 import entities.SportTeam;
 import errorhandling.MissingInputException;
@@ -102,8 +99,8 @@ public class SportTeamFacade {
 
         Sport sport = em.find(Sport.class, sportName);
         SportTeam sportTeam = em.find(SportTeam.class, teamName);
-        
-        System.out.println("SPORTTEAM   :   " +sportTeam);
+
+        System.out.println("SPORTTEAM   :   " + sportTeam);
         sport.addSportTeams(sportTeam);
 
         if (sport == null) {
@@ -117,9 +114,51 @@ public class SportTeamFacade {
             em.close();
         }
     }
-    
-        private static boolean isTeamInValid(String teamName, String pricePerYear, String minAge, String maxAge) {
+
+    public SportTeamDTO editSportTeam(SportTeamDTO s) throws MissingInputException, NotFoundException {
+        if (isTeamInValid1(s.getTeamName(), s.getPricePerYear())) {
+            throw new MissingInputException("Description and/or name is missing");
+        }
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            SportTeam sportTeam = em.find(SportTeam.class, s.getTeamName());
+            if (sportTeam == null) {
+                throw new NotFoundException("No hobby with provided id found");
+            } else {
+                sportTeam.setPricePerYear(s.getPricePerYear());
+                sportTeam.setMinAge(s.getMinAge());
+                sportTeam.setMaxAge(s.getMaxAge());
+            }
+            em.getTransaction().commit();
+            return new SportTeamDTO(sportTeam);
+        } finally {
+            em.close();
+        }
+    }
+
+    public SportTeamDTO deleteSportTeam(String teamName) throws NotFoundException {
+        EntityManager em = emf.createEntityManager();
+        SportTeam sportTeam = em.find(SportTeam.class, teamName);
+        if (sportTeam == null) {
+            throw new NotFoundException("Could not delete, provided sport does not exist");
+        } else {
+            try {
+                em.getTransaction().begin();
+                em.remove(sportTeam);
+                em.getTransaction().commit();
+            } finally {
+                em.close();
+            }
+            return new SportTeamDTO(sportTeam);
+        }
+    }
+
+    private static boolean isTeamInValid(String teamName, String pricePerYear, String minAge, String maxAge) {
         return (teamName.length() == 0) || (pricePerYear.length() == 0) || (minAge.length() == 0) || (maxAge.length() == 0);
     }
 
+    private static boolean isTeamInValid1(String teamName, String pricePerYear) {
+        return (teamName.length() == 0) || (pricePerYear.length() == 0);
+    }
 }
