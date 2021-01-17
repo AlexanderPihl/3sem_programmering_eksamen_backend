@@ -5,57 +5,30 @@
  */
 package dto;
 
+import entities.Hobby;
+import entities.SportTeam;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author alexa
  */
 public class SportTeamsDTO {
-    
-    private String teamName;
-    private String pricePerYear;
-    private String minAge;
-    private String maxAge;
+        List<SportTeamDTO> all = new ArrayList();
 
-    public SportTeamsDTO() {
+    public SportTeamsDTO(List<SportTeam> sportTeamsEntities) {
+        sportTeamsEntities.forEach((sT) -> {
+            all.add(new SportTeamDTO(sT));
+        });
     }
 
-    public SportTeamsDTO(String teamName, String pricePerYear, String minAge, String maxAge) {
-        this.teamName = teamName;
-        this.pricePerYear = pricePerYear;
-        this.minAge = minAge;
-        this.maxAge = maxAge;
+    public List<SportTeamDTO> getAll() {
+        return all;
     }
 
-    public String getTeamName() {
-        return teamName;
-    }
-
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
-
-    public String getPricePerYear() {
-        return pricePerYear;
-    }
-
-    public void setPricePerYear(String pricePerYear) {
-        this.pricePerYear = pricePerYear;
-    }
-
-    public String getMinAge() {
-        return minAge;
-    }
-
-    public void setMinAge(String minAge) {
-        this.minAge = minAge;
-    }
-
-    public String getMaxAge() {
-        return maxAge;
-    }
-
-    public void setMaxAge(String maxAge) {
-        this.maxAge = maxAge;
+    public void setAll(List<SportTeamDTO> all) {
+        this.all = all;
     }
     
     

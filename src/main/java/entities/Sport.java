@@ -39,7 +39,7 @@ public class Sport implements Serializable {
     private String description;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sport")
-    private List<SportTeams> sportTeamsList;
+    private List<SportTeam> sportTeamsList;
     
     public Sport() {
     }
@@ -50,7 +50,7 @@ public class Sport implements Serializable {
         this.sportTeamsList = new ArrayList<>();
     }
     
-    public void addSportTeams(SportTeams sportTeams) {
+    public void addSportTeams(SportTeam sportTeams) {
         if (sportTeams != null) {
             sportTeamsList.add(sportTeams);
             sportTeams.setSport(this);
@@ -73,7 +73,7 @@ public class Sport implements Serializable {
         this.description = description;
     }
 
-    public List<SportTeams> getSportTeams() {
+    public List<SportTeam> getSportTeams() {
         return sportTeamsList;
     }
 

@@ -22,9 +22,9 @@ import javax.validation.constraints.NotNull;
  * @author alexa
  */
 @Entity
-@Table(name = "sportTeams")
-@NamedQuery(name = "SportTeams.deleteAllRows", query = "DELETE from SportTeams")
-public class SportTeams implements Serializable {
+@Table(name = "sportTeam")
+@NamedQuery(name = "SportTeam.deleteAllRows", query = "DELETE from SportTeam")
+public class SportTeam implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -47,10 +47,10 @@ public class SportTeams implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Sport sport;
 
-    public SportTeams() {
+    public SportTeam() {
     }
 
-    public SportTeams(String teamName, String pricePerYear, String minAge, String maxAge) {
+    public SportTeam(String teamName, String pricePerYear, String minAge, String maxAge) {
         this.teamName = teamName;
         this.pricePerYear = pricePerYear;
         this.minAge = minAge;
