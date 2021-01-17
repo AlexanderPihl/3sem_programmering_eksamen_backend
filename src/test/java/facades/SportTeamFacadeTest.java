@@ -28,7 +28,7 @@ import utils.EMF_Creator;
  *
  * @author alexa
  */
-//@Disabled
+@Disabled
 public class SportTeamFacadeTest {
 
     private static EntityManagerFactory emf;
