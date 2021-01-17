@@ -7,13 +7,10 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import entities.Address;
-import entities.Hobby;
-import entities.Person;
-import entities.Role;
 import entities.Sport;
 import entities.SportTeam;
 import facades.PersonFacade;
+import facades.SportFacade;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
 import io.restassured.parsing.Parser;
@@ -49,7 +46,7 @@ public class SportResourceTest {
     private static EntityManagerFactory emf;
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private static final PersonFacade FACADE = PersonFacade.getPersonFacade(emf);
+    private static final SportFacade FACADE = SportFacade.getSportFacade(emf);
 
     @BeforeAll
     public static void setUpClass() {
@@ -130,14 +127,6 @@ public class SportResourceTest {
                 .assertThat()
                 .statusCode(HttpStatus.OK_200.getStatusCode())
                 .body(equalTo("{\"msg\":\"Hello from Sport\"}"));
-    }
-
-    @Test
-    public void testGetFromSport() {
-        given()
-                .when()
-                .get("sport/Basket/")
-                .then().statusCode(200);
     }
 
 }
