@@ -129,5 +129,4 @@ public class SportFacade {
     private static boolean isNameInValid(String sportName, String description) {
         return (sportName.length() == 0) || (description.length() == 0);
     }
-
 }

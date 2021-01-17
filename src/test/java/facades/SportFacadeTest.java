@@ -174,5 +174,4 @@ public class SportFacadeTest {
 
         assertEquals(2, facade.getSportCount());
     }
-
 }
