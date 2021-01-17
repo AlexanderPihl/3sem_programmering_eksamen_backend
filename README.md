@@ -1,12 +1,12 @@
-# CA3 quick start code: Backend Boilerplate
+# Alexander Pihl - 24 timer Programmering og teknik 2 Eksamen
 
-(Insert travis URL)
+[![Build Status](https://travis-ci.com/AlexanderPihl/3sem_programmering_eksamen_backend.svg?branch=main)](https://travis-ci.com/AlexanderPihl/3sem_programmering_eksamen_backend)
 
 <br>
 
 # Introduction
 
-This is part of a 3'rd semester, computer science course at CPH Business, Lyngby.
+This is part of a 3'rd semester, computer science exam at CPH Business, Lyngby.
 
 <br>
 
@@ -44,7 +44,7 @@ Consisting of unit and integration tests using:
 
 # Getting started
 
-In order to get started with the "Quick start code" you will need a [backend](https://github.com/MivleDK/CA3_Boilerplate_Backend) and [frontend](https://github.com/MivleDK/CA3_Boilerplate_Frontend).
+In order to get started with the "Quick start code" you will need a [backend](https://github.com/AlexanderPihl/3sem_programmering_eksamen_backend) and [frontend](https://github.com/AlexanderPihl/3sem_programmering_eksamen_frontend).
 
 ## Getting started with the backend
 
@@ -54,7 +54,7 @@ In order to get started with the "Quick start code" you will need a [backend](ht
 3. Configure `persistence.xml` to match your database and credentials
 4. (Optional) Configure `pom.xml` to match your deployment target (Domain name or IP-address)
 5. Make a plain java file in package "utils" named `"SetupTestUsers.java"` and persist some different users.  
-   You can use [this code example](https://gist.github.com/MivleDK/b7452b652a33414573fb3a7d91876340)
+   You can use [this code example](https://gist.github.com/AlexanderPihl/a181a5a1160b5cad6c66c7201458c04b)
 6. **DO NOT USE LEGIT USERS AND PASSWORDS IN THE TEST PACKAGE**
 7. Run a "Clean & build" to make sure that everyting was setup correctly.
 8. Run the project and verify it's accessible in your browser on localhost.
@@ -66,18 +66,10 @@ In order to get started with the "Quick start code" you will need a [backend](ht
 
 ## Getting started with the frontend
 
-1. Clone or download [the repo](https://github.com/MivleDK/CA3_Boilerplate_Frontend)
+1. Clone or download [the repo](https://github.com/AlexanderPihl/3sem_programmering_eksamen_frontend)
 2. Run `npm install` to get all dependencies
 3. Run `npm start` to run the project locally on localhost
 4. Done 🍻🎉🍾  
    You can tweak as you like or deploy directly on your domain or using surge.
 5. (Extra) to deploy on surge run `surge --project ./build --domain A_DOMAIN_NAME.surge.sh`
 <br>
-
-**Thanks to the original boilerplate contributers**
-
-- [Alexander Pihl](https://github.com/AlexanderPihl)
-- [Jean-Poul Leth-Møller](https://github.com/Jean-Poul)
-- Mick Larsen (Me)
-- [Morten Rasmussen]()
-- [Per Kringelbach](https://github.com/cph-pk)
