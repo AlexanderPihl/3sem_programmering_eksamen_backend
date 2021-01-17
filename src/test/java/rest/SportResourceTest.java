@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entities.Sport;
 import entities.SportTeam;
-import facades.PersonFacade;
 import facades.SportFacade;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
@@ -33,6 +27,7 @@ import utils.EMF_Creator;
  *
  * @author alexa
  */
+//@Disabled
 public class SportResourceTest {
 
     private static final int SERVER_PORT = 7777;

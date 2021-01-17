@@ -24,6 +24,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import static rest.PersonResourceTest.startServer;
 import utils.EMF_Creator;
@@ -32,6 +33,7 @@ import utils.EMF_Creator;
  *
  * @author alexa
  */
+//@Disabled
 public class SportTeamResourceTest {
 
     private static final int SERVER_PORT = 7777;

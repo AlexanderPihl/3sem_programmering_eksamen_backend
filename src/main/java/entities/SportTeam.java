@@ -33,10 +33,10 @@ public class SportTeam implements Serializable {
     @NotNull
     @Column(name = "teamName", length = 50)
     private String teamName;
-    
+
     @Column(name = "pricePerYear")
     private String pricePerYear;
-    
+
     @Column(name = "minAge")
     private String minAge;
 
@@ -46,6 +46,11 @@ public class SportTeam implements Serializable {
     @JoinColumn(name = "sport")
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Sport sport;
+  
+//    Coach outcommented because of all currrent tests and setupTestUsers will fail if implementet.
+//    @JoinColumn(name = "coach")
+//    @ManyToOne(cascade = CascadeType.PERSIST)
+//    private Coach coach;
 
     public SportTeam() {
     }
@@ -56,8 +61,6 @@ public class SportTeam implements Serializable {
         this.minAge = minAge;
         this.maxAge = maxAge;
     }
-    
-    
 
     public String getTeamName() {
         return teamName;
@@ -99,7 +102,14 @@ public class SportTeam implements Serializable {
         this.sport = sport;
     }
 
-
+//    Coach outcommented because of all currrent tests and setupTestUsers will fail if implementet.
+//    public Coach getCoach() {
+//        return coach;
+//    }
+//
+//    public void setCoach(Coach coach) {
+//        this.coach = coach;
+//    }
 
     
 }
