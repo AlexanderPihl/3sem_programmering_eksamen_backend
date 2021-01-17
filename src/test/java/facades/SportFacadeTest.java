@@ -60,7 +60,7 @@ public class SportFacadeTest {
     public void setUp() {
         EntityManager em = emf.createEntityManager();
         try {
-//Delete existing users and roles to get a "fresh" database
+
             em.getTransaction().begin();
             
             em.createQuery("delete from SportTeam").executeUpdate();

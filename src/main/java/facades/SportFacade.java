@@ -61,7 +61,7 @@ public class SportFacade {
         EntityManager em = emf.createEntityManager();
         Sport sport = em.find(Sport.class, sportName);
         if (sport == null) {
-            throw new NotFoundException("No hobby with provided sport name found");
+            throw new NotFoundException("No Sport with provided sport name found");
         } else {
             try {
                 return new SportDTO(sport);
@@ -96,7 +96,7 @@ public class SportFacade {
             em.getTransaction().begin();
             Sport sport = em.find(Sport.class, s.getSportName());
             if (sport == null) {
-                throw new NotFoundException("No hobby with provided sport name found");
+                throw new NotFoundException("No Sport with provided sport name found");
             } else {
                 sport.setDescription(s.getDescription());
             }

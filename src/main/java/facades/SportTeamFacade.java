@@ -43,7 +43,7 @@ public class SportTeamFacade {
     public long getSportTeamCount() {
         EntityManager em = emf.createEntityManager();
         try {
-            long sportTeamCount = (long) em.createQuery("SELECT COUNT(sT) FROM sportTeam sT").getSingleResult();
+            long sportTeamCount = (long) em.createQuery("SELECT COUNT(s) FROM sportTeam s").getSingleResult();
             return sportTeamCount;
         } finally {
             em.close();
@@ -124,7 +124,7 @@ public class SportTeamFacade {
             em.getTransaction().begin();
             SportTeam sportTeam = em.find(SportTeam.class, s.getTeamName());
             if (sportTeam == null) {
-                throw new NotFoundException("No hobby with provided id found");
+                throw new NotFoundException("No teamName with provided id found");
             } else {
                 sportTeam.setPricePerYear(s.getPricePerYear());
                 sportTeam.setMinAge(s.getMinAge());
