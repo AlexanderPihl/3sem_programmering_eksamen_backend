@@ -59,7 +59,8 @@ public class SportFacadeTest {
         try {
 //Delete existing users and roles to get a "fresh" database
             em.getTransaction().begin();
-
+            
+            em.createQuery("delete from SportTeam").executeUpdate();
             em.createQuery("delete from Sport").executeUpdate();
 
             s1 = new Sport("Basket", "et boldspil");

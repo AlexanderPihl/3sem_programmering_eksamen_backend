@@ -40,7 +40,7 @@ public class Sport implements Serializable {
     private String description;
 
     @JoinColumn(name = "sportTeam")
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sport")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "sport")
     private List<SportTeam> sportTeamsList;
 
     public Sport() {
