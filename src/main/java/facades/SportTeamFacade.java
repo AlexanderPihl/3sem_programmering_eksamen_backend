@@ -5,7 +5,6 @@
  */
 package facades;
 
-import dto.SportDTO;
 import dto.SportTeamDTO;
 import dto.SportTeamsDTO;
 import entities.Sport;
@@ -68,7 +67,7 @@ public class SportTeamFacade {
         EntityManager em = emf.createEntityManager();
         SportTeam sportTeam = em.find(SportTeam.class, teamName);
         if (sportTeam == null) {
-            throw new NotFoundException("No hobby with provided id found");
+            throw new NotFoundException("No team with provided id found");
         } else {
             try {
                 return new SportTeamDTO(sportTeam);
@@ -104,7 +103,7 @@ public class SportTeamFacade {
         sport.addSportTeams(sportTeam);
 
         if (sport == null) {
-            throw new NotFoundException("No person found");
+            throw new NotFoundException("No team found");
         }
         try {
             em.getTransaction().begin();

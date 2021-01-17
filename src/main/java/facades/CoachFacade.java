@@ -6,7 +6,6 @@
 package facades;
 
 import dto.CoachesDTO;
-import dto.SportsDTO;
 import errorhandling.NotFoundException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

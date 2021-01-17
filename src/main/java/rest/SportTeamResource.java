@@ -7,12 +7,8 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dto.HobbiesDTO;
-import dto.HobbyDTO;
-import dto.SportDTO;
 import dto.SportTeamDTO;
 import dto.SportTeamsDTO;
-import entities.Hobby;
 import entities.SportTeam;
 import errorhandling.MissingInputException;
 import errorhandling.NotFoundException;
